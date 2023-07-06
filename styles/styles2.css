@@ -1,0 +1,151 @@
+@font-face {
+  font-family: 'Electroharmonix';
+  src: url('Electroharmonix-Regular.woff2') format('woff2'),
+      url('Electroharmonix-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --text-glow: rgba(255, 255, 255, 0.19);
+  --bg-color: #000;
+  --highlight: rgb(14, 228, 228);
+  --neon-purple: #a383dd69;
+  --main-font: 'Press start 2P';
+}
+
+
+body {
+  background: var(--bg-color);
+  color: var(--text-glow);
+  font-family: var(--main-font);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: colorChange 3.5s infinite;
+}
+
+@keyframes colorChange {
+  0% { --text-glow: rgba(255, 220, 123, 0.95); --highlight: rgba(255, 220, 123, 0.35); }
+  50% { --text-glow: rgba(218, 193, 152, 0.95); --highlight: rgba(218, 193, 152, 0.35); }
+  100% { --text-glow: rgba(255, 220, 123, 0.95); --highlight: rgba(255, 220, 123, 0.35); }
+}
+
+header {
+  width: 100%;
+  background-color: rgba(0, 238, 255, 0);
+  box-shadow: 0 0 4px var(--text-glow);
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  2% { opacity: 0.1; }
+  20% { opacity: 1; }
+  22% { opacity: 0.4; }
+  23% { opacity: 1; }
+  33% { opacity: 0.6; }
+  45% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 20px 0;
+}
+
+nav a {
+  color: var(--text-glow);
+  text-decoration: none;
+  position: relative;
+  transition: 0.5s;
+  animation: neon 1s ease-in-out infinite alternate;
+}
+
+nav a:hover {
+  color: var(--neon-purple);
+  text-shadow: 0 0 1px var(--highlight), 0 0 3px var(--highlight);
+}
+
+nav a:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--highlight);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+nav a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+@keyframes neon {
+  from { text-shadow: 0 0 5px var(--highlight), 0 0 10px var(--highlight); }
+  to { text-shadow: 0 0 10px var(--highlight), 0 0 20px var(--highlight); }
+}
+
+main {
+  width: 90%;
+  max-width: 1200px;
+}
+
+section {
+  margin: 20px 0;
+  border: 3px solid var(--text-glow);
+  padding: 20px;
+  text-align: center;
+  animation: popIn 0.5s ease-in-out;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  animation: glow 2s infinite;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px var(--text-glow), 0 0 10px var(--text-glow); }
+  50% { box-shadow: 0 0 20px var(--text-glow), 0 0 30px var(--text-glow); }
+  100% { box-shadow: 0 0 5px var(--text-glow), 0 0 10px var(--text-glow); }
+}
+
+h1, h2, h3 {
+  font-family: 'Electroharmonix';
+  text-transform: uppercase;
+  color: var(--text-glow);
+  text-shadow: 0 0 5px var(--highlight), 0 0 10px var(--highlight);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+p{
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+a {
+  color: var(--highlight);
+  text-shadow: 0 0 5px var(--highlight);
+}
+
+a:hover {
+  color: var(--neon-purple);
+}
+
+/* Other sections and elements follow the same pattern, modify as necessary */
