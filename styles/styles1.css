@@ -131,6 +131,10 @@ h2 {
   font-size: 2rem;
 }
 
+p{
+  font-size: 1.4rem;
+}
+
 h3 {
   font-size: 1.5rem;
 }
@@ -143,5 +147,6 @@ a {
 a:hover {
   color: var(--neon-purple);
 }
+
 
 /* Other sections and elements follow the same pattern, modify as necessary */
